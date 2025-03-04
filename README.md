@@ -60,7 +60,7 @@ This will import all motions in CMU Mocap dataset into `ASE/ase/poselib/data/npy
 
 4. Retarget motions
 ```bash
-cd ASE/ase/poselib
+cd ASE/ase/poselib/data
 mkdir pkl retarget_npy
 python retarget_motion_h1_all.py
 ```
@@ -71,11 +71,13 @@ This will retarget all motions in `ASE/ase/poselib/data/npy` to `ASE/ase/poselib
 This step will require running simulation to extract more precise key body positions. 
 ```bash
 cd legged_gym/legged_gym/scripts
-python train.py debug --task h1_view --motion_name motions_debug.yaml --debug
+# python train.py debug --task h1_view --motion_name motions_debug.yaml --debug
+python train.py debug --task h1_view --motion_name motions_autogen_debug_basketball.yaml --debug
 ```
 Train for 1 iteration and kill the program to have a dummy model to load. 
 ```bash
 python play.py debug --task h1_view --motion_name motions_autogen_all.yaml
+python play.py debug --task h1_view --motion_name motions_autogen_debug_basketball.yaml 
 ```
 It is recommended to use `motions_autogen_all.yaml` at the first time, so that later if you have a subset it is not neccessary to regenerate keybody positions. This will generate keybody positions to `ASE/ase/poselib/data/retarget_npy`.
 Set wandb asset: 

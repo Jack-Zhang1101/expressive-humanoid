@@ -33,7 +33,7 @@ from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobot
 
 class H1MimicCfg( LeggedRobotCfg ):
     class env( LeggedRobotCfg.env ):
-        num_envs = 6144
+        num_envs = 4096 #6144
 
         n_demo_steps = 2
         n_demo = 9 + 3 + 3 + 3 +6*3  #observe height
@@ -57,7 +57,7 @@ class H1MimicCfg( LeggedRobotCfg ):
     class motion:
         motion_curriculum = True
         motion_type = "yaml"
-        motion_name = "motions_autogen_all_no_run_jump.yaml"
+        motion_name = "motions_autogen_debug_basketball.yaml"
 
         global_keybody = False
         global_keybody_reset_time = 2
